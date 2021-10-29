@@ -1,9 +1,9 @@
 # Office management challenge
 
-### Project Description
+## Project Description
 This app allows staff members and office managers to keep track of meeting rooms in use at the office.
 
-### Set up:
+## Set up:
 Fork the repo to your github repo
 Clone the project from your github repo to your machine
 ```
@@ -11,7 +11,7 @@ cd office-management-challenge
 gradle
 ```
 
-### User Stories
+## User Stories
 ```As a staff member
 In order to distinguish between meeting rooms
 I would like my meeting room to have a name
@@ -81,6 +81,6 @@ I would like to see the name of the meeting and the name of the team that is usi
 - [ ] the user can see a list of available rooms in the office
 - [ ] the user can attempt to enter a meeting room that is in use and it will be shown an error
 
-### Diagram
+## Diagram
 
 ![Diagram](https://github.com/delexii/office-management-app/blob/6ca6efeb5f9c8dd962d1252de8176f19c30aba17/app/public/UML%20Diagram.png)
