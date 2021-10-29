@@ -83,4 +83,4 @@ I would like to see the name of the meeting and the name of the team that is usi
 
 ### Diagram
 
-https://github.com/delexii/office-management-app/blob/6ca6efeb5f9c8dd962d1252de8176f19c30aba17/app/public/UML%20Diagram.png
+![Diagram](https://github.com/delexii/office-management-app/blob/6ca6efeb5f9c8dd962d1252de8176f19c30aba17/app/public/UML%20Diagram.png)
