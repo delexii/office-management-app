@@ -4,10 +4,14 @@ import java.util.ArrayList;
 
 public class Office {
 
-    ArrayList<MeetingRoom> spaces = new ArrayList<MeetingRoom>();
+    public ArrayList<String> spaces = new ArrayList<String>();
 
-    public MeetingRoom addRoom(MeetingRoom meetingRoom) {
-        spaces.add(meetingRoom);
-        return meetingRoom;
+    public String addRoom(MeetingRoom room) {
+        this.spaces.add(room.name);
+        return room.name;
+    }
+
+    public ArrayList<String> getRooms() {
+        return this.spaces;
     }
 }
