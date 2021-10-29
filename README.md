@@ -80,3 +80,7 @@ I would like to see the name of the meeting and the name of the team that is usi
 - [ ] the user can leave a meeting room and render this available for others
 - [ ] the user can see a list of available rooms in the office
 - [ ] the user can attempt to enter a meeting room that is in use and it will be shown an error
+
+### Diagram
+
+https://github.com/delexii/office-management-app/blob/6ca6efeb5f9c8dd962d1252de8176f19c30aba17/app/public/UML%20Diagram.png
