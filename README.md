@@ -75,10 +75,10 @@ I would like to see the name of the meeting and the name of the team that is usi
 - [x] the user can see the name of each meeting room
 - [x] the user can add a meeting room to the office
 - [x] the user can see a list of all the meeting rooms
-- [ ] the user can check whether a room is available or not
+- [x] the user can check whether a room is available or not
 - [ ] the user can enter a meeting room and render this unavailable for others
 - [ ] the user can leave a meeting room and render this available for others
-- [ ] the user can see a list of available rooms in the office
+- [x] the user can see a list of available rooms in the office
 - [ ] the user can attempt to enter a meeting room that is in use and it will be shown an error
 
 ## Diagram

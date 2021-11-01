@@ -12,10 +12,13 @@ public class App {
     static Office office = new Office();
     static Integer userChoice;
 
+    public MeetingRoom room;
+
     public static void main(String[] args) {
 
         String mainMenu = ("Select a choice from the menu: \n" + "1. Add a room\n" + "2. See all rooms\n"
-                + "3. See available rooms\n" + "4. Enter a room\n" + "5. Leave a room\n" + "6. Exit\n");
+                + "3. See available rooms\n" + "4. Enter a room\n" + "5. Leave a room\n"
+                + "6. Check if room available\n" + "7. Exit\n");
 
         do {
             System.out.println(App.getGreeting());
@@ -38,6 +41,13 @@ public class App {
                 App.displayAvailableRooms();
                 break;
             case 6:
+                if (App.userChecksAvailability()) {
+                    System.out.println("This room is available\n");
+                } else {
+                    System.out.println("This room is unavailable\n");
+                }
+                break;
+            case 7:
                 System.exit(0);
                 break;
             }
@@ -90,4 +100,16 @@ public class App {
         Character response = App.displayReturnPrompt();
         return response;
     }
+
+    public static Boolean userChecksAvailability() {
+        System.out.println("Enter a room name to check availability:");
+        Scanner scanner = new Scanner(System.in);
+        String room = scanner.next();
+        if (office.availableSpaces.contains(room)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
