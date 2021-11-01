@@ -5,6 +5,7 @@ package office.management.challenge;
 
 import java.util.Collections;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -13,9 +14,10 @@ public class App {
     static Integer userChoice;
 
     public MeetingRoom room;
+    public static List<String> availableSpaces = office.getAvailableRooms();
+    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-
         String mainMenu = ("Select a choice from the menu: \n" + "1. Add a room\n" + "2. See all rooms\n"
                 + "3. See available rooms\n" + "4. Enter a room\n" + "5. Leave a room\n"
                 + "6. Check if room available\n" + "7. Exit\n");
@@ -23,7 +25,6 @@ public class App {
         do {
             System.out.println(App.getGreeting());
             System.out.println(mainMenu);
-            Scanner scanner = new Scanner(System.in);
             userChoice = scanner.nextInt();
 
             switch (userChoice) {
@@ -40,8 +41,12 @@ public class App {
             case 3:
                 App.displayAvailableRooms();
                 break;
+            case 4:
+                App.userEntersRoom();
+                System.out.println("Booking successful!\n");
+                break;
             case 6:
-                if (App.userChecksAvailability()) {
+                if (userChecksAvailability()) {
                     System.out.println("This room is available\n");
                 } else {
                     System.out.println("This room is unavailable\n");
@@ -52,7 +57,7 @@ public class App {
                 break;
             }
         } while (userChoice != 0);
-
+        scanner.close();
     }
 
     public static String getGreeting() {
@@ -61,13 +66,11 @@ public class App {
 
     public static Character displayReturnPrompt() {
         System.out.println("Press x to return to the main menu:");
-        Scanner scanner = new Scanner(System.in);
         return scanner.next().charAt(0);
     }
 
     public static Character displayAddRoomOption() {
         System.out.println("Enter a name for your room");
-        Scanner scanner = new Scanner(System.in);
         String name = scanner.next();
         office.addRoom(new MeetingRoom(name));
         Character response = App.displayReturnPrompt();
@@ -103,13 +106,26 @@ public class App {
 
     public static Boolean userChecksAvailability() {
         System.out.println("Enter a room name to check availability:");
-        Scanner scanner = new Scanner(System.in);
         String room = scanner.next();
-        if (office.availableSpaces.contains(room)) {
+        if (availableSpaces.contains(room)) {
             return true;
         } else {
             return false;
         }
     }
 
+    public static void userEntersRoom() {
+        System.out.println("Enter a room name to book:");
+        Scanner name = new Scanner(System.in);
+        String room = name.next();
+        MeetingRoom room1 = new MeetingRoom(room);
+        for (String i : availableSpaces) {
+            for (MeetingRoom j : office.spaces) {
+                if (i == room1.name && room1.name == j.name) {
+                    j.enterRoom();
+                }
+            }
+        }
+        name.close();
+    }
 }

@@ -21,10 +21,13 @@ public class Office {
     public List<String> getAvailableRooms() {
 
         for (MeetingRoom i : spaces) {
-            if (i.available) {
-                availableSpaces.add(i.name);
+            for (String j : availableSpaces) {
+                if (i.available && i.name != j) {
+                    availableSpaces.add(i.name);
+                }
             }
         }
+
         return availableSpaces;
     }
 }
