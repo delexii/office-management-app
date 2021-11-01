@@ -14,7 +14,8 @@ public class App {
 
     public static void main(String[] args) {
 
-        String mainMenu = ("Select a choice from the menu: \n" + "1. Add a room\n" + "2. See all rooms\n" + "3. Exit");
+        String mainMenu = ("Select a choice from the menu: \n" + "1. Add a room\n" + "2. See all rooms\n"
+                + "3. See available rooms\n" + "4. Enter a room\n" + "5. Leave a room\n" + "6. Exit\n");
 
         do {
             System.out.println(App.getGreeting());
@@ -33,10 +34,12 @@ public class App {
                     App.displayAllRooms();
                 }
                 break;
-            case 3: {
+            case 3:
+                App.displayAvailableRooms();
+                break;
+            case 6:
                 System.exit(0);
                 break;
-            }
             }
         } while (userChoice != 0);
 
@@ -70,6 +73,20 @@ public class App {
             String line = String.format(" * %s", currentItem.name);
             System.out.println(line);
         }
+        Character response = App.displayReturnPrompt();
+        return response;
+    }
+
+    public static Character displayAvailableRooms() {
+        Enumeration<String> e = Collections.enumeration(office.getAvailableRooms());
+
+        System.out.println("Available rooms: ");
+        while (e.hasMoreElements()) {
+            String currentItem = e.nextElement();
+            String line = String.format(" * %s", currentItem);
+            System.out.println(line);
+        }
+
         Character response = App.displayReturnPrompt();
         return response;
     }

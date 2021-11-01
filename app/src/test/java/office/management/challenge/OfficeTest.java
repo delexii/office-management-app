@@ -26,11 +26,25 @@ public class OfficeTest {
     @Test
     public void testOfficeGetsAllRooms() {
         MeetingRoom room1 = new MeetingRoom("Surfers Paradise");
-        MeetingRoom room2 = new MeetingRoom("Surfers Paradise");
+        MeetingRoom room2 = new MeetingRoom("Gold Coast");
         Office office = new Office();
         office.addRoom(room1);
         office.addRoom(room2);
         assertEquals(office.getRooms().isEmpty(), false);
         assertEquals(office.getRooms().size(), 2);
+    }
+
+    @Test
+    public void testUserCanSeeAllAvailableRooms() {
+        Office office = new Office();
+        MeetingRoom room1 = new MeetingRoom("Surfers Paradise");
+        MeetingRoom room2 = new MeetingRoom("Gold Coast");
+        office.addRoom(room1);
+        office.addRoom(room2);
+        room2.enterRoom();
+        List<String> availableSpaces = office.getAvailableRooms();
+        assertEquals(room2.available, false);
+        assertEquals(office.spaces.size(), 2);
+        assertEquals(availableSpaces.size(), 1);
     }
 }

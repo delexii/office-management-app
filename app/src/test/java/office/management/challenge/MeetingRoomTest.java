@@ -9,4 +9,17 @@ public class MeetingRoomTest {
         MeetingRoom meetingRoom = new MeetingRoom("Surfers Paradise");
         assertEquals(meetingRoom.getName(), "Surfers Paradise");
     }
+
+    @Test
+    public void testMeetingRoomIsAvailable() {
+        MeetingRoom meetingRoom = new MeetingRoom("Surfers Paradise");
+        assertEquals(meetingRoom.available, true);
+        assertEquals(meetingRoom.leaveRoom(), meetingRoom.available);
+    }
+
+    @Test
+    public void testMeetingRoomIsNotAvailable() {
+        MeetingRoom meetingRoom = new MeetingRoom("Surfers Paradise");
+        assertEquals(meetingRoom.enterRoom(), meetingRoom.available);
+    }
 }

@@ -72,9 +72,9 @@ I would like to see the name of the meeting and the name of the team that is usi
 
 ## Project Features
 
-- [ ] the user can see the name of each meeting room
-- [ ] the user can add a meeting room to the office
-- [ ] the user can see a list of all the meeting rooms
+- [x] the user can see the name of each meeting room
+- [x] the user can add a meeting room to the office
+- [x] the user can see a list of all the meeting rooms
 - [ ] the user can check whether a room is available or not
 - [ ] the user can enter a meeting room and render this unavailable for others
 - [ ] the user can leave a meeting room and render this available for others
