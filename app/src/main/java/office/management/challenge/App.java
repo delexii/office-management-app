@@ -107,7 +107,8 @@ public class App {
     public static Boolean userChecksAvailability() {
         System.out.println("Enter a room name to check availability:");
         String room = scanner.next();
-        if (availableSpaces.contains(room)) {
+        // office.getAvailableRooms();
+        if (office.getAvailableRooms().contains(room)) {
             return true;
         } else {
             return false;
@@ -116,16 +117,18 @@ public class App {
 
     public static void userEntersRoom() {
         System.out.println("Enter a room name to book:");
-        Scanner name = new Scanner(System.in);
-        String room = name.next();
-        MeetingRoom room1 = new MeetingRoom(room);
-        for (String i : availableSpaces) {
-            for (MeetingRoom j : office.spaces) {
-                if (i == room1.name && room1.name == j.name) {
-                    j.enterRoom();
-                }
+        String room = scanner.next();
+        for (MeetingRoom j : office.spaces) {
+            // System.out.println(j.name == room);
+            // System.out.println(room);
+
+            if (room.equals(j.name)) {
+                j.enterRoom();
             }
+            // System.out.println(j.available);
+            // System.out.println("Hello");
         }
+        office.getAvailableRooms();
         // name.close();
     }
 }

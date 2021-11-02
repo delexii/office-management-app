@@ -19,6 +19,6 @@ public class MeetingRoom {
     }
 
     public Boolean leaveRoom() {
-        return available;
+        return available = true;
     }
 }
