@@ -45,6 +45,9 @@ public class App {
                 App.userEntersRoom();
                 System.out.println("Booking successful!\n");
                 break;
+            case 5:
+                App.userLeavesRoom();
+                break;
             case 6:
                 if (userChecksAvailability()) {
                     System.out.println("This room is available\n");
@@ -130,5 +133,16 @@ public class App {
         }
         office.getAvailableRooms();
         // name.close();
+    }
+
+    public static void userLeavesRoom() {
+        System.out.println("Enter a room name to book:");
+        String room = scanner.next();
+        for (MeetingRoom j : office.spaces) {
+            if (room.equals(j.name)) {
+                j.leaveRoom();
+            }
+        }
+        office.getAvailableRooms();
     }
 }
