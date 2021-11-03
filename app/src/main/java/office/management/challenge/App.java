@@ -17,7 +17,7 @@ public class App {
     public static List<String> availableSpaces = office.getAvailableRooms();
     static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         String mainMenu = ("Select a choice from the menu: \n" + "1. Add a room\n" + "2. See all rooms\n"
                 + "3. See available rooms\n" + "4. Enter a room\n" + "5. Leave a room\n"
                 + "6. Check if room available\n" + "7. Exit\n");
@@ -118,15 +118,18 @@ public class App {
         }
     }
 
-    public static void userEntersRoom() {
+    public static void userEntersRoom() throws Exception {
         System.out.println("Enter a room name to book:");
         String room = scanner.next();
         for (MeetingRoom j : office.spaces) {
             // System.out.println(j.name == room);
             // System.out.println(room);
 
-            if (room.equals(j.name)) {
+            if (room.equals(j.name) && j.available) {
                 j.enterRoom();
+            } else if (j.available == false) {
+                throw new Exception("This room is already in use");
+
             }
             // System.out.println(j.available);
             // System.out.println("Hello");
